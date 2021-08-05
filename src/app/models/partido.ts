@@ -1,4 +1,4 @@
-export class partido{
+export class Partido {
     constructor(
         public usuario: number,
         public local:number,

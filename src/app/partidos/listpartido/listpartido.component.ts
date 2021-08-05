@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PartidoService } from '../../services/partido.service';
-import {partido} from '../../models/partido'
+import {Partido} from '../../models/partido';
 
 @Component({
   selector: 'app-listpartido',
@@ -9,14 +9,14 @@ import {partido} from '../../models/partido'
   styleUrls: ['./listpartido.component.css']
 })
 export class ListpartidoComponent implements OnInit {
-  public partidos: partido[] = [];
+  public partidos: Partido[] = [];
   constructor(private partidoService: PartidoService) { }
 
   ngOnInit(): void {
   }
 
   traerPartidos() {
-    this.partidoService.traerPartido().subscribe((partido: partido[]) => {
+    this.partidoService.traerPartido().subscribe((partido: Partido[]) => {
       this.partidos = partido;
     })
   }

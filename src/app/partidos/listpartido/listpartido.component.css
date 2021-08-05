@@ -1,15 +1,4 @@
 
-.contenedor{
-    width: 50%;
-    height: 100vh;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.6);
-}
-
 .campo{
     margin: 5px;
     color: white;
@@ -67,7 +56,7 @@ button{
 
 }
 button:hover{
-    transform:scale(1.1);
+    transform:scale(1.04);
     background-color: green;
     color: white;
    

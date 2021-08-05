@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Oswald', sans-serif;
+        background: url('https://p4.wallpaperbetter.com/wallpaper/804/507/648/soccer-stadium-santiago-bernabeu-1920x1080-sports-football-hd-art-wallpaper-preview.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    
+}
+

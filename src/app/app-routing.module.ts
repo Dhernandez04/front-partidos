@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegistrarComponent } from './auth/registrar/registrar.component';
+import { AuthGuard } from './guards/auth.guard';
 import { ListpartidoComponent } from './partidos/listpartido/listpartido.component';
 import { OpcionesComponent } from './partidos/opciones/opciones.component';
 import { UpmarcadorComponent } from './partidos/upmarcador/upmarcador.component';
@@ -9,9 +10,9 @@ import { UpmarcadorComponent } from './partidos/upmarcador/upmarcador.component'
 const routes: Routes = [
   { path: '', component:LoginComponent,
   pathMatch: 'full'},
-  {path: 'opciones', component:OpcionesComponent},
-  {path: 'lista', component:ListpartidoComponent},
-  {path: 'actualizar', component:UpmarcadorComponent},
+  {path: 'opciones', component:OpcionesComponent,canActivate:[AuthGuard],},
+  {path: 'lista', component:ListpartidoComponent,canActivate:[AuthGuard],},
+  {path: 'actualizar', component:UpmarcadorComponent,canActivate:[AuthGuard],},
   {path: 'registro', component:RegistrarComponent},
   {path:"**", redirectTo: ''}
 ];

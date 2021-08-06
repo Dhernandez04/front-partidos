@@ -9,6 +9,8 @@ import { AddpartidoComponent } from './partidos/addpartido/addpartido.component'
 import { ListpartidoComponent } from './partidos/listpartido/listpartido.component';
 import { UpmarcadorComponent } from './partidos/upmarcador/upmarcador.component';
 import { OpcionesComponent } from './partidos/opciones/opciones.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,10 @@ import { OpcionesComponent } from './partidos/opciones/opciones.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

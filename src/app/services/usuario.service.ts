@@ -1,32 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Usuario } from '../models/Usuario';
-
+import { Observable , of } from 'rxjs';
+import {  map, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment.prod';
+import { Usuario } from '../models/Usuario';
 const base_url = environment.base_url;
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
+ public  usuario!: Usuario;
 
-  constructor(private http: HttpClient) { }
-  
-  get token(): string {
-    return localStorage.getItem("token") || "";
+  constructor(private http:HttpClient) { 
+    
   }
-  get headers(){
-    return { headers: { 'x-token': this.token } };
+  validarToken(): Observable<boolean> {
+    const token = localStorage.getItem('token') || '';
+    return this.http.get(`${base_url}/api/auth/renew`, { headers: { 'x-token': token } }).pipe(
+      map((resp: any) => {
+        
+        const { nombre, username, correo, id_rol, password,id, } = resp.usuario;
+        this.usuario = new Usuario(nombre, username, correo,password,  id);
+        localStorage.setItem('token', resp.token);
+        localStorage.setItem('role',id_rol)
+     return true;
+      }),
+   
+      catchError(error => of(false)
+      )
+    )
   }
-
-  crearUsuario(data:Usuario) {
-    return this.http.post(`${base_url}/api/auth/registrar`,data,this.headers);
-  }
-
-  traerPartido(){
-    return this.http.get<Usuario[]>(`${base_url}/api/partidos`, this.headers);
-  }
-  /*
-  actualiarAcido(id,data){
-       return this.http.put(`${base_url}/api/partidos/${id}`,data,this.headers);
-  }*/
 }

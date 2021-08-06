@@ -16,6 +16,9 @@ export class UsuarioService {
   constructor(private http:HttpClient) { 
     
   }
+  get token(): string {
+    return localStorage.getItem('token') || "";
+  }
   validarToken(): Observable<boolean> {
     const token = localStorage.getItem('token') || '';
     return this.http.get(`${base_url}/api/auth/renew`, { headers: { 'x-token': token } }).pipe(

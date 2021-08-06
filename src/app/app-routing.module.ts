@@ -8,12 +8,12 @@ import { UpmarcadorComponent } from './partidos/upmarcador/upmarcador.component'
 
 const routes: Routes = [
   { path: '', component:LoginComponent,
-  pathMatch: 'full'},
+  },
   {path: 'opciones', component:OpcionesComponent},
   {path: 'lista', component:ListpartidoComponent},
   {path: 'actualizar', component:UpmarcadorComponent},
   {path: 'registrar', component:RegistrarComponent},
-  {path:"**", redirectTo: ''}
+  {path:"**", redirectTo: 'registrar'}
 ];
 
 @NgModule({

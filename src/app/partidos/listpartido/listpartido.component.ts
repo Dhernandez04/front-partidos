@@ -13,6 +13,7 @@ export class ListpartidoComponent implements OnInit {
   constructor(private partidoService: PartidoService) { }
 
   ngOnInit(): void {
+    this.traerPartidos();
   }
 
   traerPartidos() {

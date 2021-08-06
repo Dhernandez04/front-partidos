@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if(this.usuarioService.token){
      
-        this.router.navigateByUrl('/lista')
+        this.router.navigateByUrl('/opciones')
       
     }else{
       this.router.navigateByUrl('/login')
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     this.usuarioService.login(this.loginForm.value).subscribe((resp) => {
     
       
-      this.router.navigateByUrl('/lista')
+      this.router.navigateByUrl('/opciones')
     }, (err => {
       
       

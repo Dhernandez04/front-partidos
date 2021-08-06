@@ -13,31 +13,22 @@
                 <th scope="col">E. Visitante</th>
                 <th scope="col">Goles L</th>
                 <th scope="col">Goles V</th>
+                <th scope="co">-</th>
+
               </tr>
               
             </thead>
             
-            <tbody>
+            <tbody *ngFor="let partido of partidos">
               <tr>
-                <td scope="row">03/08/2021</td>
-                <td>Manchester</td>
-                <td>Millonarios</td>
-                <td>0</td>
-                <td>5</td>
-              </tr>
-              <tr>
-                <td scope="row">04/08/2021</td>
-                <td>Junior</td>
-                <td>FC Barcelona</td>
-                <td>4</td>
-                <td>2</td>
-              </tr>
-              <tr>
-                <td scope="row">05/08/2021</td>
-                <td>Cali</td>
-                <td>Medellin</td>
-                <td>1</td>
-                <td>1</td>
+                <td scope="row">{{partido.fecha}}</td>
+                <td>{{partido.local}}</td>
+                <td>{{partido.visitante}}</td>
+                <td>{{partido.goles_local}}</td>
+                <td>{{partido.goles_visitante}}</td>
+                <td *ngIf="partido.goles_visitante == null && partido.goles_local==null ">
+                  <a (click)="actualizar(partido.id)" class="">Actualizar</a>
+                </td>
               </tr>
             </tbody>
           </table>

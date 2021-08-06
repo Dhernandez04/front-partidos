@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Partido } from '../models/partido';
+import { Partido } from '../models/Partido';
 
 import { environment } from '../../environments/environment.prod';
 const base_url = environment.base_url;

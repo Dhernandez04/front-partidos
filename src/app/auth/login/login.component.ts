@@ -20,6 +20,13 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
+    if(this.usuarioService.token){
+     
+        this.router.navigateByUrl('/lista')
+      
+    }else{
+      this.router.navigateByUrl('/login')
+    }
   }
 
   login() {

@@ -1,4 +1,5 @@
 <div class="contenedor">
+    <a routerLink="/lista" class="btn back pa">Regresar</a>
     <div class="header">
         <h1>Actualizar partido</h1>
         <p>Ingrese los goles de cada equipo.</p>
@@ -8,17 +9,19 @@
     (ngSubmit)="actualizar()" autocomplete="off"> 
         <div class="campo">
             <label class="titulo"  >Fecha:</label><br>
-            <input type="datetime" id="fecha" formControlName="fecha" value="{{partido.fecha}}" placeholder="{{partido.fecha}}"><br>
+            <input type="datetime" id="fecha" formControlName="fecha" ><br>
         </div>
 
         <div class="campo">
             <label class="titulo" for="visitante" >Equipo visitante:</label><br>
-            <input type="text" id="visitante" formControlName="visitante" value="{{visitante.id}}" placeholder="{{visitante.nombre}}" ><br>
+            <input type="hidden" id="visitante" formControlName="visitante"  ><br>
+            <input type="text" id="visitante" [value]="visitante?.nombre"  ><br>
         </div>
 
         <div class="campo">
             <label class="titulo" for="local" >Equipo local:</label><br>
-            <input type="text" id="local" formControlName="local" value="{{local.id}}" placeholder="{{local.nombre}}"><br>
+            <input type="hidden" id="local" formControlName="local"><br>
+            <input type="text" id="local" [value]="local?.nombre" ><br>
         </div>
 
         <div class="campo">

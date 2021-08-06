@@ -16,8 +16,10 @@ export class ListpartidoComponent implements OnInit {
   }
 
   traerPartidos() {
-    this.partidoService.traerPartido().subscribe((partido: Partido[]) => {
-      this.partidos = partido;
+    this.partidoService.traerPartido().subscribe((partido: any) => {
+      this.partidos = partido.partido;
+      console.log(this.partidos);
+      
     })
   }
 }

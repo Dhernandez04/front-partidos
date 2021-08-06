@@ -38,8 +38,13 @@ export class PartidoService {
   traerPartido(){
     return this.http.get<Partido[]>(`${base_url}/api/partidos`, this.headers);
   }
-  /*
-  actualiarAcido(id,data){
-       return this.http.put(`${base_url}/api/partidos/${id}`,data,this.headers);
-  }*/
+  
+  traerUno(id:number){
+       return this.http.get(`${base_url}/api/partidos/${id}`,this.headers);
+  }
+
+  actualiarPartido(id: number,data: Partido){
+    return this.http.put(`${base_url}/api/partidos/${id}`,data,this.headers);
+}
+
 }

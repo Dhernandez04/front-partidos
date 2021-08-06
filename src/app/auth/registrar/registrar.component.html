@@ -1,7 +1,7 @@
 
 
 <section class="contenedor-login fondo">
-    <form class="form" [formGroup]="registrarForm" (ngSubmit)="crearUsuario()">
+    <form class="form" [formGroup]="registrarForm" (ngSubmit)="crearUsuario()" autocomplete="off">
         <h2>Registrarse</h2>
         <label for="Nombre">Nombre:</label><br>
         <input type="text" id="Nombre" formControlName="nombre" placeholder="Pedro Martinez" ><br>

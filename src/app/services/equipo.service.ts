@@ -29,6 +29,9 @@ export class EquipoService {
        return this.http.put(`${base_url}/api/partidos/${id}`,data,this.headers);
   }*/
 
+  traerUno(id:number){
+    return this.http.get(`${base_url}/api/equipos/${id}`,this.headers);
+}
   actualizar(){
     
   }

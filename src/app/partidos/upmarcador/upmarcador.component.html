@@ -4,30 +4,31 @@
         <p>Ingrese los goles de cada equipo.</p>
     </div>
 
-    <div class="options"> 
+    <form class="options" [formGroup]="actualizarForm"
+    (ngSubmit)="actualizar()" autocomplete="off"> 
         <div class="campo">
-            <label class="titulo" for="password" >Fecha:</label><br>
-            <input type="datetime" id="fecha" name="fecha" value="15/08/2021" disabled="disabled"><br>
+            <label class="titulo"  >Fecha:</label><br>
+            <input type="datetime" id="fecha" formControlName="fecha" value="{{partido.fecha}}" placeholder="{{partido.fecha}}"><br>
         </div>
 
         <div class="campo">
             <label class="titulo" for="visitante" >Equipo visitante:</label><br>
-            <input type="text" id="visitante" name="visitante" value="Junior" disabled="disabled"><br>
+            <input type="text" id="visitante" formControlName="visitante" value="{{visitante.id}}" placeholder="{{visitante.nombre}}" ><br>
         </div>
 
         <div class="campo">
             <label class="titulo" for="local" >Equipo local:</label><br>
-            <input type="text" id="local" name="local" value="Millonarios" ><br>
+            <input type="text" id="local" formControlName="local" value="{{local.id}}" placeholder="{{local.nombre}}"><br>
         </div>
 
         <div class="campo">
             <label class="titulo" for="gvisitante" >Goles visitante:</label><br>
-            <input type="number" id="password" name="password" placeholder="1" ><br>
+            <input type="number"  formControlName="goles_visitante"  ><br>
         </div>
 
         <div class="campo">
             <label class="titulo" for="glocal" >Goles local:</label><br>
-            <input type="number" id="glocal" name="glocal" placeholder="0" ><br>
+            <input type="number" id="glocal" formControlName="goles_local"  ><br>
         </div>
 
         
@@ -37,5 +38,5 @@
             <button>Actualizar</button>
         </div>
         
-    </div>
+    </form>
 

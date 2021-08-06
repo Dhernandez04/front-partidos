@@ -13,6 +13,8 @@
                 <th scope="col">E. Visitante</th>
                 <th scope="col">Goles L</th>
                 <th scope="col">Goles V</th>
+                <th scope="co">-</th>
+
               </tr>
               
             </thead>
@@ -24,6 +26,9 @@
                 <td>{{partido.visitante}}</td>
                 <td>{{partido.goles_local}}</td>
                 <td>{{partido.goles_visitante}}</td>
+                <td *ngIf="partido.goles_visitante == null && partido.goles_local==null ">
+                  <a (click)="actualizar(partido.id)" class="">Actualizar</a>
+                </td>
               </tr>
             </tbody>
           </table>

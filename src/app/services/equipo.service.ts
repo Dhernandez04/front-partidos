@@ -7,7 +7,7 @@ const base_url = environment.base_url;
 @Injectable({
   providedIn: 'root'
 })
-export class PartidoService {
+export class EquipoService {
 
   constructor(private http: HttpClient) { }
   
@@ -17,29 +17,21 @@ export class PartidoService {
   get headers(){
     return { headers: { 'x-token': this.token } };
   }
-   datetotime(template: any, date: any) {
-    date = date.split( template[1] );
-    template = template.split( template[1] );
-    date = date[ template.indexOf('m') ]
-        + "/" + date[ template.indexOf('d') ]
-        + "/" + date[ template.indexOf('Y') ];
 
-    return (new Date(date).getTime());
-}
-  crearPartido(data:Partido) {
-    data.fecha=this.datetotime("d-m-Y",data.fecha);
-   
-    
-   
-    
-    return this.http.post(`${base_url}/api/partidos`,data,this.headers);
+ 
+
+  traerEquipos(){
+    return this.http.get<Partido[]>(`${base_url}/api/equipos`, this.headers);
   }
 
-  traerPartido(){
-    return this.http.get<Partido[]>(`${base_url}/api/partidos`, this.headers);
-  }
   /*
   actualiarAcido(id,data){
        return this.http.put(`${base_url}/api/partidos/${id}`,data,this.headers);
   }*/
+
+  actualizar(){
+    
+  }
+
+  
 }

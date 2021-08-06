@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'opciones', component:OpcionesComponent},
   {path: 'lista', component:ListpartidoComponent},
   {path: 'actualizar', component:UpmarcadorComponent},
-  {path: 'registrar', component:RegistrarComponent},
+  {path: 'registro', component:RegistrarComponent},
   {path:"**", redirectTo: ''}
 ];
 

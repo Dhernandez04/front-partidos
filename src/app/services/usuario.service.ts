@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable , of } from 'rxjs';
-import {  map, catchError } from 'rxjs/operators';
+import {  map, catchError, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment.prod';
+import { LoginForm } from '../interfaces/login-form';
 import { Usuario } from '../models/Usuario';
 const base_url = environment.base_url;
 @Injectable({
@@ -30,4 +31,12 @@ export class UsuarioService {
       )
     )
   }
+  login(formLogin: LoginForm) {
+    return this.http.post(`${base_url}/api/auth/login`, formLogin).pipe(
+      tap((resp: any) => {
+        localStorage.setItem('token', resp.token);
+      })
+    )
+  }
+
 }
